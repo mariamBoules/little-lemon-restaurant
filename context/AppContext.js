@@ -3,8 +3,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const AppContext = createContext();
 
-
-
 export const AppProvider = ({ children }) => {
   const [logged, setLogged] = useState(false);
   const [isLoading, setIsLoading] = React.useState(true);

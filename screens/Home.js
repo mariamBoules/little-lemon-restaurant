@@ -218,6 +218,7 @@ function Home() {
           data={data}
           keyExtractor={({ id }) => id}
           renderItem={renderItem}
+          
         />
       </SafeAreaView>
     </SafeAreaProvider>
