@@ -19,8 +19,6 @@ export const AppProvider = ({ children }) => {
   const [isSpecialOffers, setIsSpecialOffers] = useState(false);
   const [isNewsletter, setIsNewsletter] = useState(false);
 
-
-
   useEffect(() => {
     const loadState = async () => {
       try {

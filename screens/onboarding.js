@@ -40,7 +40,7 @@ function Onboarding({ navigation }) {
     return true;
   };
   return (
-    <>
+    <View style={{flex:1, backgroundColor: "#FFF8DC"}}>
       <View style={onboardingStyles.header}>
         <Image
           source={require("../images/logo.png")}
@@ -78,9 +78,9 @@ function Onboarding({ navigation }) {
             <Pressable
               onPress={() => {
                 if (validateInputs()) {
-                  navigation.navigate("Home");
                   setLogged(true);
                   console.log("from Onboarding : " + logged)
+                  //navigation.navigate("Home")
                 }
               }}
               style={onboardingStyles.button}
@@ -90,7 +90,7 @@ function Onboarding({ navigation }) {
           </ScrollView>
         </KeyboardAvoidingView>
       </SafeAreaView>
-    </>
+    </View>
   );
 }
 
@@ -122,7 +122,7 @@ const onboardingStyles = StyleSheet.create({
     flex: 0.1,
     backgroundColor: "#FFF8DC",
     alignItems: "center",
-    marginTop: 0,
+    marginTop: 80,
   },
   content: {
     flex: 1,

@@ -16,7 +16,6 @@ import { useNavigation } from "@react-navigation/native";
 import PhoneNumber from "libphonenumber-js";
 import ProfilePicture from "../Avatar/avatar";
 import * as ImagePicker from "expo-image-picker";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const validatePhoneNumber = (phoneNumber, countryCode) => {
   try {
@@ -32,7 +31,6 @@ const validatePhoneNumber = (phoneNumber, countryCode) => {
 };
 
 function Profile({ navigation }) {
-  const { goBack } = useNavigation();
   const {
     firstName,
     email,
@@ -100,16 +98,27 @@ function Profile({ navigation }) {
 
   // Save changes to context from the local state
   const handleSave = () => {
+    if (profileData.phone && !validatePhoneNumber(profileData.phone, "EG")) {
+      Alert.alert("Wrong Phone Number");
+      setProfileData(phone)
+    }
+    else{
+      setPhone(profileData.phone);
+    }
+    if(profileData.profile === 1){
+      setProfile(null)
+    }else{
+      setProfile(profileData.profile);
+    }
+
     onChangeFirstName(profileData.firstName);
     onChangeLastName(profileData.lastName);
     onChangeEmail(profileData.email);
-    setPhone(profileData.phone);
-    setProfile(profileData.profile);
     setOrder(profileData.isOrder);
     setIsPasswordChanged(profileData.isPasswordChanged);
     setIsSpecialOffers(profileData.isSpecialOffers);
     setIsNewsletter(profileData.isNewsletter);
-    goBack();
+    navigation.pop();
   };
 
   // Discard changes and reset to initial context state
@@ -125,11 +134,11 @@ function Profile({ navigation }) {
       isSpecialOffers,
       isNewsletter,
     });
-    goBack();
+
+    navigation.pop()
   };
 
   const pickImage = async () => {
-    // Ensure the user has granted permissions
     const permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
 
@@ -146,14 +155,14 @@ function Profile({ navigation }) {
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
-      setProfile(result.assets[0].uri);
+      handleChange("profile",result.assets[0].uri);
     } else {
       console.log("Problem in URI");
     }
   };
 
   const removeImage = async () => {
-    if (profile) setProfile(null);
+    if (profile) handleChange("profile", 1);
   };
 
   return (
@@ -182,7 +191,8 @@ function Profile({ navigation }) {
               </Text>
             </Pressable>
 
-            <ProfilePicture header={0} />
+
+            <ProfilePicture header={0} changedProfile={profileData.profile}/>
           </View>
 
           <Text style={profileStyles.labelText}>First Name</Text>
@@ -272,9 +282,6 @@ function Profile({ navigation }) {
           <View style={{ ...profileStyles.avatar_view, marginTop: 20 }}>
             <Pressable
               onPress={() => {
-                if (profileData.phone && !validatePhoneNumber(phone, "EG")) {
-                  Alert.alert("Wrong Phone Number");
-                }
                 handleSave();
               }}
               style={{ ...profileStyles.change_button, marginRight: 20, marginLeft: 10,}}
@@ -298,11 +305,8 @@ function Profile({ navigation }) {
 
           <Pressable
             onPress={() => {
+              //navigation.navigate("Onboarding")
               logout();
-              navigation.reset({
-                index: 0,
-                routes: [{ name: "Onboarding" }],
-              });
             }}
             style={profileStyles.button}
           >
@@ -369,6 +373,8 @@ const profileStyles = StyleSheet.create({
     borderColor: "#F4CE14",
     borderWidth: 2,
     borderRadius: 12,
+    marginBottom: 40,
+
   },
   avatar_view: {
     flex: 0.3,

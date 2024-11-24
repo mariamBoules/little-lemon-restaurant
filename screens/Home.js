@@ -21,7 +21,7 @@ import {
   insertMenuItems,
 } from "../Database/Data";
 
-function Home({ navigation }) {
+function Home() {
   const [data, setData] = useState("");
   const [availableCategories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);

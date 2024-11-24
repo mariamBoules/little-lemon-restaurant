@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { AppContext } from "../context/AppContext";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const AvatarWithInitials = ({ style_1, style_2 }) => {
   const { firstName, lastName } = useContext(AppContext);
@@ -18,25 +19,38 @@ const AvatarWithInitials = ({ style_1, style_2 }) => {
   );
 };
 
-const ProfilePicture = ({ header }) => {
+const ProfilePicture = ({ header, changedProfile = null }) => {
   const { profile } = useContext(AppContext);
 
-  return profile ? (
-    header? (  <Image source={{ uri: profile }} style={avatarStyles.container_2} />):
-
-  <Image source={{ uri: profile }} style={avatarStyles.container} />
-  ) : header ? (
-    <AvatarWithInitials
-      style_1={avatarStyles.container_2}
-      style_2={avatarStyles.initials_2}
-    />
-  ) : (
+  return changedProfile === 1 ?
+  (
     <AvatarWithInitials
       style_1={avatarStyles.container}
       style_2={avatarStyles.initials}
     />
-  );
-};
+  ): changedProfile ? (
+    <Image source={{ uri: changedProfile }} style={avatarStyles.container} />)
+    : (
+    profile ? (
+      header ? (
+        <Image source={{ uri: profile }} style={avatarStyles.container_2} />
+      )
+       : (
+        <Image source={{ uri: profile }} style={avatarStyles.container} />
+      ))
+     : header ? (
+      <AvatarWithInitials
+        style_1={avatarStyles.container_2}
+        style_2={avatarStyles.initials_2}
+      />
+    ) : (
+      <AvatarWithInitials
+        style_1={avatarStyles.container}
+        style_2={avatarStyles.initials}
+      />
+    )
+    )
+}
 
 const avatarStyles = StyleSheet.create({
   container: {
@@ -53,7 +67,7 @@ const avatarStyles = StyleSheet.create({
     width: 50, // Adjust as needed
     height: 50, // Match width for a perfect circle
     backgroundColor: "#F4CE14",
-    borderRadius: 50, 
+    borderRadius: 50,
     marginRight: 20,
   },
   initials: {
