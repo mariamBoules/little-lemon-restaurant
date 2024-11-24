@@ -2,17 +2,14 @@ import {
   View,
   Text,
   StyleSheet,
-  Button,
   Image,
   FlatList,
-  Touchable,
   TouchableOpacity,
   Alert,
 } from "react-native";
-import { Pressable, ScrollView, TextInput } from "react-native-gesture-handler";
+import { ScrollView, TextInput } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useEffect, useContext, useState } from "react";
-import { AppContext } from "../context/AppContext";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import {
   dropTable,

@@ -13,7 +13,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AppContext } from "../context/AppContext";
 
-function Onboarding({ navigation }) {
+function Onboarding() {
   const {
     setLogged,
     logged,

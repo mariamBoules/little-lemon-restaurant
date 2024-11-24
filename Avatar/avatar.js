@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { AppContext } from "../context/AppContext";
-import { TouchableOpacity } from "react-native-gesture-handler";
+
 
 const AvatarWithInitials = ({ style_1, style_2 }) => {
   const { firstName, lastName } = useContext(AppContext);

@@ -12,7 +12,6 @@ import {
 import Checkbox from "expo-checkbox";
 import { AppContext } from "../context/AppContext";
 import { useContext, useEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
 import PhoneNumber from "libphonenumber-js";
 import ProfilePicture from "../Avatar/avatar";
 import * as ImagePicker from "expo-image-picker";
@@ -50,8 +49,6 @@ function Profile({ navigation }) {
     setIsSpecialOffers,
     isNewsletter,
     setIsNewsletter,
-    logged,
-    setLogged,
     logout,
   } = useContext(AppContext);
 
