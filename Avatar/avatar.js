@@ -21,7 +21,6 @@ const AvatarWithInitials = ({ style_1, style_2 }) => {
 
 const ProfilePicture = ({ header, changedProfile = null }) => {
   const { profile } = useContext(AppContext);
-
   return changedProfile === 1 ?
   (
     <AvatarWithInitials
@@ -54,31 +53,31 @@ const ProfilePicture = ({ header, changedProfile = null }) => {
 
 const avatarStyles = StyleSheet.create({
   container: {
-    justifyContent: "center", // Center content vertically
-    alignItems: "center", // Center content horizontally
-    width: 100, // Adjust as needed
-    height: 100, // Match width for a perfect circle
+    justifyContent: "center", 
+    alignItems: "center", 
+    width: 100, 
+    height: 100, 
     backgroundColor: "#F4CE14",
-    borderRadius: 50, // Half of the width/height for a perfect circle
+    borderRadius: 50, 
   },
   container_2: {
-    justifyContent: "center", // Center content vertically
-    alignItems: "center", // Center content horizontally
-    width: 50, // Adjust as needed
-    height: 50, // Match width for a perfect circle
+    justifyContent: "center", 
+    alignItems: "center", 
+    width: 50, 
+    height: 50, 
     backgroundColor: "#F4CE14",
     borderRadius: 50,
     marginRight: 20,
   },
   initials: {
-    color: "#ffffff", // Text color
-    fontSize: 30, // Adjust text size as needed
-    fontWeight: "800", // Bold text
+    color: "#ffffff",
+    fontSize: 30, 
+    fontWeight: "800",
   },
   initials_2: {
-    color: "#ffffff", // Text color
-    fontSize: 18, // Adjust text size as needed
-    fontWeight: "800", // Bold text
+    color: "#ffffff", 
+    fontSize: 18, 
+    fontWeight: "800", 
   },
   image: {
     borderRadius: "50%",
