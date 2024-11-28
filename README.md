@@ -10,7 +10,9 @@ React Native food ordering app.
 - Get started with a simple and intuitive onboarding experience.
 - Add your **first name** and **email** to begin.
 
-![Onboarding Process](./assets/onboarding-screen.MP4)
+<div style="text-align: center;">
+<img src="./assets//onboarding-screen.gif" alt="Onboarding Screen" width="300">
+</div>
 
 ---
 
@@ -18,24 +20,28 @@ React Native food ordering app.
 - View the **menu items** with **descriptions** and **prices**.
 - Filter items by **category** and use the **search bar** to find your favorites.
 
-![Browse Menu](./assets/menu-tour.MP4)
+<div style="text-align: center;">
+<img src="./assets/menu-tour.gif" alt="Menu Tour" width="300">
+</div>
 
 ---
-
 
 ### 3. **Profile Management**
 - Update your **profile picture**, **personal information**, and **preferences** like special offers and newsletters.
 
-![Profile Management](./assets/populating-info-profilepicture.mov)
+<div style="text-align: center;">
+<img src="./assets/populating-info-profilepicture.gif" alt="Profile Tour" width="300">
+</div>
 
 ---
 
 ### 4. **Order Preferences**
 - Customize your **order preferences**, including opting in for special **offers** and receiving **newsletters**.
 
-![Order Preferences](./assets/checkboxes-and-logout.MP4)
+<div style="text-align: center;">
+<img src="./assets/checkboxes-and-logout.gif" alt="Checkboxes and Logout" width="300">
+</div>
 
----
 
 ## How to Use
 
