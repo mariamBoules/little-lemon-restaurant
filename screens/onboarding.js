@@ -74,13 +74,12 @@ function Onboarding() {
               placeholder="Email"
               keyboardType="email-address"
               clearButtonMode={true}
+              autoCapitalize="none"
             />
             <Pressable
               onPress={() => {
                 if (validateInputs()) {
                   setLogged(true);
-                  console.log("from Onboarding : " + logged)
-                  //navigation.navigate("Home")
                 }
               }}
               style={onboardingStyles.button}

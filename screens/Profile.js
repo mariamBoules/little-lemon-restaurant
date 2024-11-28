@@ -159,7 +159,7 @@ function Profile({ navigation }) {
   };
 
   const removeImage = async () => {
-    if (profile) handleChange("profile", 1);
+    if (profileData.profile) handleChange("profile", 1);
   };
 
   return (
